@@ -58,6 +58,12 @@ pipeline {
                 echo 'Package completed successfully!'
             }
         }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t myapp:${BUILD_NUMBER} .'
+                echo 'Docker image built successfully!'
+            }
+        }
     }
     
     post {
